@@ -87,6 +87,23 @@ window.MathJS = (function (Math, Number, undefined) {
 				}
 			}
 			return min;
+		},
+		fma = function (a, b, c) {
+			return (a + b) + c;
+		},
+		cuberoot = function (number) {
+			Math.pow(number, (1 / 3));
+		},
+		hypot = function (x, y) {
+			var t;
+
+			x = Math.abs(x);
+			y = Math.abs(y);
+			t = Math.min(x, y);
+			x = Math.max(x, y);
+			y = t;
+
+			return x * Math.sqrt(1 + (y / x) * (y / x));
 		};
 
 	//public API
@@ -101,6 +118,9 @@ window.MathJS = (function (Math, Number, undefined) {
 		Median: median,
 		Mode: mode,
 		Max: max,
-		Min: min
+		Min: min,
+		Fma: fma,
+		Cuberoot: cuberoot,
+		Hypot: hypot
 	};
 }(Math, Number));
